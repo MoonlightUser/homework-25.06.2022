@@ -1,3 +1,11 @@
 const START_MENU_TEXT = "a) Registration\nb) Log In\nc) Check list of Users\nd) Change data of user\nq) Exit"
 const HELLO_TEXT = "Hello user, this is a program, which was created by me, Tymur Crutoi. Have fun"
 const WRONG_ANSWER_TEXT = `Please, fill in only "a" "b" "c" "d" "q"`
+const NAME_TEXT = "Name: "
+const SECNAME_TEXT = "Second name: "
+const AGE_TEXT = "Age: "
+const EMAIL_TEXT = "Email: "
+const PASSWORD_TEXT = "Password: "
+const BYE_TEXT = "ty for time which u spend with us! Bye!"
+const CONFIRM_EXIT_TEXT = "Are you want to continue operation?"
+const SPACE_TEXT = "----------------------------------"
