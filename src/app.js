@@ -22,7 +22,26 @@ function startMenuCheckAnswer(userAnswer_local){
         }
     }
     else if (userAnswer_local == "b"){ // log in
-        return test()
+        let userEmail = prompt(EMAIL_TEXT)
+        let userPassword = prompt(PASSWORD_TEXT)
+        let serverAnswer = (findSameUser(USERS_BASE, userPassword, userEmail))
+        if (serverAnswer === false){
+            alert(LOGIN_FALSE_TEXT)
+        }
+        else{
+            console.log(LOGIN_TRUE_TEXT);
+            for (let i in USERS_BASE[serverAnswer]){
+                console.log(`[${i}]: ${USERS_BASE[serverAnswer][i]}`);
+            }
+        }
+        let userConfirm_local = confirm(CONFIRM_EXIT_TEXT)
+        if (userConfirm_local == true){
+            return true
+        }
+        else{
+            alert(BYE_TEXT)
+            return false
+        }
     }
     else if (userAnswer_local == "c"){  // all users
         return test()
@@ -55,4 +74,14 @@ function newUserAndPush(base){
     base.push(newUser)
     console.log(`Was created user with name: ${newUser.name} and second name: ${newUser.secondName}`);
     return base
+}
+
+function findSameUser(base, password, email){
+    for(let i in base){
+        if (base[i].password == password && base[i].email == email){
+            return i
+        }
+    }
+    
+    return false
 }
