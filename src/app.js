@@ -43,9 +43,21 @@ function startMenuCheckAnswer(userAnswer_local){
             return false
         }
     }
+
     else if (userAnswer_local == "c"){  // all users
-        return test()
+        if (USERS_BASE.length == 0){
+            alert(USERS_BASE_EMPTY_TEXT)
+        }
+        else{
+            for (let i in USERS_BASE){
+                for (let j in USERS_BASE[i]){
+                    console.log(`[${j}]: ${USERS_BASE[i][j]}`);
+                }
+                console.log(SPACE_TEXT);
+            }
+        }
     }
+
     else if (userAnswer_local == "d"){ // change data user
         return test()
     }
