@@ -21,6 +21,8 @@ function startMenuCheckAnswer(userAnswer_local){
             return false
         }
     }
+
+
     else if (userAnswer_local == "b"){ // log in
         let userEmail = prompt(EMAIL_TEXT)
         let userPassword = prompt(PASSWORD_TEXT)
@@ -44,6 +46,7 @@ function startMenuCheckAnswer(userAnswer_local){
         }
     }
 
+
     else if (userAnswer_local == "c"){  // all users
         if (USERS_BASE.length == 0){
             alert(USERS_BASE_EMPTY_TEXT)
@@ -58,23 +61,47 @@ function startMenuCheckAnswer(userAnswer_local){
         }
     }
 
+
     else if (userAnswer_local == "d"){ // change data user
-        return test()
+        let userEmail = prompt(EMAIL_TEXT)
+        let userPassword = prompt(PASSWORD_TEXT)
+        let serverAnswer = (findSameUser(USERS_BASE, userPassword, userEmail))
+        if (serverAnswer === false){
+            alert(LOGIN_FALSE_TEXT)
+        }
+        else{
+            console.log(LOGIN_TRUE_TEXT);
+            for (let i in USERS_BASE[serverAnswer]){
+                USERS_BASE[serverAnswer][i] = prompt(`[${i}]: `)
+            }
+            for (let i in USERS_BASE[serverAnswer]){
+                console.log(`[${i}]: ${USERS_BASE[serverAnswer][i]}`);
+            }
+
+        }
+        let userConfirm_local = confirm(CONFIRM_EXIT_TEXT)
+        if (userConfirm_local == true){
+            return true
+        }
+        else{
+            alert(BYE_TEXT)
+            return false
+        }
     }
+
+
     else if (userAnswer_local == "q"){ // exit
         alert(BYE_TEXT)
         return false
     }
+
+
     else{
         alert(WRONG_ANSWER_TEXT)
         return true
     }
 }
 
-function test(){
-    console.log('%capp.js line:32 "test is good"', 'color: #007acc;', "test is good");
-    return false
-}
 
 function newUserAndPush(base){
     let newUser = {}
